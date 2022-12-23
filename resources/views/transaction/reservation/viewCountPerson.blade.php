@@ -16,7 +16,7 @@
                                     action="{{ route('transaction.reservation.chooseRoom', ['customer' => $customer->id]) }}">
                                     <div class="col-md-12">
                                         <label for="count_person" class="form-label">
-                                            How many person?
+                                            Bao nhiêu thành viên?
                                         </label>
                                         <input type="text" class="form-control @error('count_person') is-invalid @enderror"
                                             id="
@@ -48,7 +48,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-12">
-                                        <button type="submit" class="btn myBtn shadow-sm border float-end">Next</button>
+                                        <button type="submit" class="btn myBtn shadow-sm border float-end">Tiếp tục</button>
                                     </div>
                                 </form>
                             </div>

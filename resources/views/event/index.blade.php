@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-    <title>Pusher Testt</title>
+    <title>test</title>
     <link href="{{ asset('package/toastr/toastr/build/toastr.css') }}" rel="stylesheet" />
     {{-- Sweet Alert 2 JS --}}
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
@@ -25,10 +25,10 @@
 </head>
 
 <body>
-    <h1>Pusher Testt</h1>
+    <h1>test</h1>
     <p>
-        Try publishing an event to channel <code>my-channel</code>
-        with event name <code>my-event</code>.
+        test 1<code>my-channel</code>
+        tên <code>my-event</code>.
     </p>
 </body>
 {{-- Sweet Alert 2 JS --}}

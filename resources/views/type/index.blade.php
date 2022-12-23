@@ -19,7 +19,7 @@
                     <form class="d-flex" method="GET" action="{{ route('type.index') }}">
                         <input class="form-control me-2" type="Search by name" placeholder="Search by name"
                             aria-label="Search" id="search" name="search" value="{{ request()->input('search') }}">
-                        <button class="btn btn-outline-dark" type="submit">Search</button>
+                        <button class="btn btn-outline-dark" type="submit">Tìm kiếm</button>
                     </form>
                 </div>
             </div>
@@ -32,9 +32,9 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Information</th>
-                                            <th scope="col">Action</th>
+                                            <th scope="col">Tên</th>
+                                            <th scope="col">Thông tin</th>
+                                            <th scope="col">Hành động</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -82,7 +82,7 @@
                                         @empty
                                             <tr>
                                                 <td colspan="10" class="text-center">
-                                                    There's no data in this table
+                                                    Không có dữ liệu trong bảng.
                                                 </td>
                                             </tr>
                                         @endforelse
@@ -91,7 +91,7 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <h3>Room Type</h3>
+                            <h3>Loại phòng</h3>
                         </div>
                     </div>
                 </div>

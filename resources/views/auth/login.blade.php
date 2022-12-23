@@ -38,7 +38,7 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
-                                <h5 class="card-title text-center">Hotel Information System</h5>
+                                <h5 class="card-title text-center">Hệ thống thông tin khách sạn</h5>
                             </div>
                         </div>
                         <form onsubmit="return disableButton()" class="form-signin" action="/postLogin" method="POST">
@@ -59,7 +59,7 @@
                                         <input type="password" id="password" name="password" autocomplete="new-password"
                                             class="form-control @error('password') is-invalid @enderror" placeholder="Password" value="{{ old('password') }}"
                                             required>
-                                        <label for="password">Password</label>
+                                        <label for="password">Mật Khẩu</label>
                                         @error('password')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -77,10 +77,13 @@
                                                 style="width: 15px; height: 15px">
                                             </div>
                                             <div id="text_submit">
-                                                Login
+                                                Đăng nhập
                                             </div>
+                                            
                                         </button>
+                                       
                                     </div>
+                                    <a href="/register">Đăng kí</a></p> 
                                 </div>
                             </div>
                             <hr class="my-4">

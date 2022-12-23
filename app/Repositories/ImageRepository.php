@@ -37,7 +37,7 @@ class ImageRepository
         if (is_dir($dir)) {
             $objects = scandir($dir);
             foreach ($objects as $object) {
-                if ($object != "." && $object != "..") {
+                if ($object != "U." && $object != "..") {
                     filetype($dir . "/" . $object) == "dir" ?
                         $this->destroy($dir . "/" . $object)
                         :

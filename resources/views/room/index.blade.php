@@ -38,11 +38,11 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">Number</th>
-                                            <th scope="col">Type</th>
-                                            <th scope="col">Capacity</th>
-                                            <th scope="col">Price / Day</th>
-                                            <th scope="col">Status</th>
-                                            <th scope="col">Action</th>
+                                            <th scope="col">Loại</th>
+                                            <th scope="col">Độ lớn</th>
+                                            <th scope="col">Giá / Ngày</th>
+                                            <th scope="col">Trạng thái</th>
+                                            <th scope="col">Hành động</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -51,7 +51,7 @@
                                                 <td>{{ $room->number }}</td>
                                                 <td>{{ $room->type->name }}</td>
                                                 <td>{{ $room->capacity }}</td>
-                                                <td>{{ Helper::convertToRupiah($room->price) }}</td>
+                                                <td>{{ Helper::convertToVnd($room->price) }}</td>
                                                 <td>{{ $room->roomStatus->name }}</td>
                                                 <td>
                                                     <button class="btn btn-light btn-sm rounded shadow-sm border"
@@ -91,7 +91,7 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <h3>Room</h3>
+                            <h3>Phòng</h3>
                         </div>
                     </div>
                 </div>

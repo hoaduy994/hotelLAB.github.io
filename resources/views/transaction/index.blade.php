@@ -19,15 +19,15 @@
         </div>
         <div class="col-lg-6 mb-2">
             <form class="d-flex" method="GET" action="{{ route('transaction.index') }}">
-                <input class="form-control me-2" type="search" placeholder="Search by ID" aria-label="Search"
+                <input class="form-control me-2" type="search" placeholder="Tìm kiếm" aria-label="Search"
                     id="search-user" name="search" value="{{ request()->input('search') }}">
-                <button class="btn btn-outline-dark" type="submit">Search</button>
+                <button class="btn btn-outline-dark" type="submit">Tìm kiếm</button>
             </form>
         </div>
     </div>
     <div class="row my-2 mt-4 ms-1">
         <div class="col-lg-12">
-            <h5>Active Guests: </h5>
+            <h5>Khách đang hoạt động: </h5>
         </div>
     </div>
     <div class="row">
@@ -39,16 +39,16 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>ID</th>
-                                    <th>Customer</th>
-                                    <th>Room</th>
-                                    <th>Check In</th>
-                                    <th>Check Out</th>
-                                    <th>Days</th>
-                                    <th>Total Price</th>
-                                    <th>Paid Off</th>
-                                    <th>Debt</th>
-                                    <th>Action</th>
+                                     <th>ID</th>
+                                     <th>Khách hàng</th>
+                                     <th>Phòng</th>
+                                     <th>Đăng ký</th>
+                                     <th>Thanh toán</th>
+                                     <th>Ngày</th>
+                                     <th>Tổng giá</th>
+                                     <th>Đã thanh toán</th>
+                                     <th>Nợ</th>
+                                     <th>Hành động</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -63,12 +63,12 @@
                                         <td>{{ Helper::dateFormat($transaction->check_out) }}</td>
                                         <td>{{ $transaction->getDateDifferenceWithPlural($transaction->check_in, $transaction->check_out) }}
                                         </td>
-                                        <td>{{ Helper::convertToRupiah($transaction->getTotalPrice()) }}
+                                        <td>{{ Helper::convertToVnd($transaction->getTotalPrice()) }}
                                         </td>
                                         <td>
-                                            {{ Helper::convertToRupiah($transaction->getTotalPayment()) }}
+                                            {{ Helper::convertToVnd($transaction->getTotalPayment()) }}
                                         </td>
-                                        <td>{{ $transaction->getTotalPrice() - $transaction->getTotalPayment() <= 0 ? '-' : Helper::convertToRupiah($transaction->getTotalPrice() - $transaction->getTotalPayment()) }}
+                                        <td>{{ $transaction->getTotalPrice() - $transaction->getTotalPayment() <= 0 ? '-' : Helper::convertToVnd($transaction->getTotalPrice() - $transaction->getTotalPayment()) }}
                                         </td>
                                         <td>
                                             <a class="btn btn-light btn-sm rounded shadow-sm border p-1 m-0 {{$transaction->getTotalPrice() - $transaction->getTotalPayment() <= 0 ? 'disabled' : ''}}"
@@ -81,7 +81,7 @@
                                 @empty
                                     <tr>
                                         <td colspan="15" class="text-center">
-                                            There's no data in this table
+                                                Bảng không có dữ liệu.
                                         </td>
                                     </tr>
                                 @endforelse
@@ -95,7 +95,7 @@
     </div>
     <div class="row my-2 mt-4 ms-1">
         <div class="col-lg-12">
-            <h5>Expired: </h5>
+            <h5>Hết hạn: </h5>
         </div>
     </div>
     <div class="row">
@@ -107,16 +107,16 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>ID</th>
-                                    <th>Customer</th>
-                                    <th>Room</th>
-                                    <th>Check In</th>
-                                    <th>Check Out</th>
-                                    <th>Days</th>
-                                    <th>Total Price</th>
-                                    <th>Paid Off</th>
-                                    <th>Debt</th>
-                                    <th>Action</th>
+                                     <th>ID</th>
+                                     <th>Khách hàng</th>
+                                     <th>Phòng</th>
+                                     <th>Đăng ký</th>
+                                     <th>Thanh toán</th>
+                                     <th>Ngày</th>
+                                     <th>Tổng giá</th>
+                                     <th>Đã thanh toán</th>
+                                     <th>Nợ</th>
+                                     <th>Hành động</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -131,12 +131,12 @@
                                     <td>{{ Helper::dateFormat($transaction->check_out) }}</td>
                                     <td>{{ $transaction->getDateDifferenceWithPlural($transaction->check_in, $transaction->check_out) }}
                                     </td>
-                                    <td>{{ Helper::convertToRupiah($transaction->getTotalPrice()) }}
+                                    <td>{{ Helper::convertToVnd($transaction->getTotalPrice()) }}
                                     </td>
                                     <td>
-                                        {{ Helper::convertToRupiah($transaction->getTotalPayment()) }}
+                                        {{ Helper::convertToVnd($transaction->getTotalPayment()) }}
                                     </td>
-                                    <td>{{ $transaction->getTotalPrice() - $transaction->getTotalPayment() <= 0 ? '-' : Helper::convertToRupiah($transaction->getTotalPrice($transaction->room->price, $transaction->check_in, $transaction->check_out) - $transaction->getTotalPayment()) }}
+                                    <td>{{ $transaction->getTotalPrice() - $transaction->getTotalPayment() <= 0 ? '-' : Helper::convertToVnd($transaction->getTotalPrice($transaction->room->price, $transaction->check_in, $transaction->check_out) - $transaction->getTotalPayment()) }}
                                     </td>
                                     <td>
                                         <a class="btn btn-light btn-sm rounded shadow-sm border p-1 m-0 {{$transaction->getTotalPrice($transaction->room->price, $transaction->check_in, $transaction->check_out) - $transaction->getTotalPayment() <= 0 ? 'disabled' : ''}}"
@@ -149,7 +149,7 @@
                             @empty
                                 <tr>
                                     <td colspan="15" class="text-center">
-                                        There's no data in this table
+                                        Bảng không có dữ liệu.
                                     </td>
                                 </tr>
                             @endforelse
@@ -170,21 +170,21 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Have any account?</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Đã có tài khoản chưa?</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="d-flex justify-content-center">
                         <a class="btn btn-sm btn-primary m-1"
-                            href="{{ route('transaction.reservation.createIdentity') }}">No, create
-                            new account!</a>
+                            href="{{ route('transaction.reservation.createIdentity') }}">Không, tạo
+                            tài khoản mới!</a>
                         <a class="btn btn-sm btn-success m-1"
-                            href="{{ route('transaction.reservation.pickFromCustomer') }}">Yes, use
-                            their account!</a>
+                            href="{{ route('transaction.reservation.pickFromCustomer') }}">Có, sử dụng
+                            tài khoản của họ!</a>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
                 </div>
             </div>
         </div>

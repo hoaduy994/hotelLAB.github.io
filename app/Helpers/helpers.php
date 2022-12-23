@@ -7,10 +7,10 @@ use Illuminate\Support\Str;
 
 class Helper
 {
-    public static function convertToRupiah($price)
+    public static function convertToVnd($price)
     {
-        $price_rupiah = "Rp. " . number_format($price, 2, ',', '.');
-        return $price_rupiah;
+        $price_vnd = number_format($price) . " VND";
+        return $price_vnd;
     }
 
     public static function thisMonth()

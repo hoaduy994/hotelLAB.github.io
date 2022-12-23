@@ -8,14 +8,14 @@
                     <div class="col-lg-6">
                         <div class="card shadow-sm border" style="border-radius: 0.5rem">
                             <div class="card-body">
-                                <h5>{{ count($transactions) }} Guests this day</h5>
+                                <h5>{{ count($transactions) }} Khách hôm nay</h5>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="card shadow-sm border" style="border-radius: 0.5rem">
                             <div class="card-body text-center">
-                                <h5>Dashboard</h5>
+                                <h5>Bảng điều khiển</h5>
                             </div>
                             <!-- /.info-box-content -->
                         </div>
@@ -28,7 +28,7 @@
                             <div class="card-header">
                                 <div class="row ">
                                     <div class="col-lg-12 d-flex justify-content-between">
-                                        <h3>Today Guests</h3>
+                                        <h3> Khách hôm nay</h3>
                                         <div>
                                             <a href="#" class="btn btn-tool btn-sm">
                                                 <i class="fas fa-download"></i>
@@ -45,12 +45,12 @@
                                     <thead>
                                         <tr>
                                             <th></th>
-                                            <th>Name</th>
-                                            <th>Room</th>
-                                            <th class="text-center">Stay</th>
-                                            <th>Day Left</th>
-                                            <th>Debt</th>
-                                            <th class="text-center">Status</th>
+                                            <th>Tên</th>
+                                            <th>Phòng</th>
+                                            <th class="text-center">Ở lại</th>
+                                            <th>Ngày rời đi</th>
+                                            <th>Nợ</th>
+                                            <th class="text-center">Trạng thái</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -79,7 +79,7 @@
                                                 <td>{{ Helper::getDateDifference(now(), $transaction->check_out) == 0 ? 'Last Day' : Helper::getDateDifference(now(), $transaction->check_out) . ' ' . Helper::plural('Day', Helper::getDateDifference(now(), $transaction->check_out)) }}
                                                 </td>
                                                 <td>
-                                                    {{ $transaction->getTotalPrice() - $transaction->getTotalPayment() <= 0 ? '-' : Helper::convertToRupiah($transaction->getTotalPrice() - $transaction->getTotalPayment()) }}
+                                                    {{ $transaction->getTotalPrice() - $transaction->getTotalPayment() <= 0 ? '-' : Helper::convertToVnd($transaction->getTotalPrice() - $transaction->getTotalPayment()) }}
                                                 </td>
                                                 <td>
                                                     <span
@@ -88,7 +88,7 @@
                                                     </span>
                                                     @if (Helper::getDateDifference(now(), $transaction->check_out) < 1)
                                                         <span class="justify-content-center badge bg-danger">
-                                                            must finish payment
+                                                            phải hoàn thành thanh toán
                                                         </span>
                                                     @endif
                                                 </td>
@@ -96,7 +96,7 @@
                                         @empty
                                             <tr>
                                                 <td colspan="10" class="text-center">
-                                                    There's no data in this table
+                                                    Không có dữ liệu trong bảng này
                                                 </td>
                                             </tr>
                                         @endforelse
@@ -126,7 +126,7 @@
                         <div class="card shadow-sm border">
                             <div class="card-header border-0">
                                 <div class="d-flex justify-content-between">
-                                    <h3 class="card-title">Monthly Guests Chart</h3>
+                                    <h3 class="card-title"> Biểu đồ khách hàng tháng</h3>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -152,7 +152,7 @@
                                         <i class="fas fa-square text-primary"></i> {{ Helper::thisMonth() }}
                                     </span>
                                     <span>
-                                        <i class="fas fa-square text-gray"></i> Last month
+                                        <i class="fas fa-square text-gray"></i> Tháng trước
                                     </span>
                                 </div>
                             </div>

@@ -23,7 +23,7 @@
             <div class="col-md-8 mt-2">
                 <div class="card shadow-sm border">
                     <div class="card-body p-3">
-                        <h2>{{ $roomsCount }} Room Available for:</h2>
+                        <h2>{{ $roomsCount }} Phòng có sẵn cho:</h2>
                         <p>{{ request()->input('count_person') }}
                             {{ Helper::plural('People', request()->input('count_person')) }} on
                             {{ Helper::dateFormat(request()->input('check_in')) }} to
@@ -39,20 +39,20 @@
                                 <div class="col-lg-6">
                                     <select class="form-select" id="sort_name" name="sort_name"
                                         aria-label="Default select example">
-                                        <option value="Price" @if (request()->input('sort_name') == 'Price') selected @endif>Price</option>
-                                        <option value="Number" @if (request()->input('sort_name') == 'Number') selected @endif>Number</option>
-                                        <option value="Capacity" @if (request()->input('sort_name') == 'Capacity') selected @endif>Capacity</option>
+                                        <option value="Price" @if (request()->input('sort_name') == 'Price') selected @endif>Giá</option>
+                                        <option value="Number" @if (request()->input('sort_name') == 'Number') selected @endif>Số</option>
+                                        <option value="Capacity" @if (request()->input('sort_name') == 'Capacity') selected @endif>Độ lớn</option>
                                     </select>
                                 </div>
                                 <div class="col-lg-4">
                                     <select class="form-select" id="sort_type" name="sort_type"
                                         aria-label="Default select example">
-                                        <option value="ASC" @if (request()->input('sort_type') == 'ASC') selected @endif>Ascending</option>
-                                        <option value="DESC" @if (request()->input('sort_type') == 'DESC') selected @endif>Descending</option>
+                                        <option value="ASC" @if (request()->input('sort_type') == 'ASC') selected @endif>Từ A - Z</option>
+                                        <option value="DESC" @if (request()->input('sort_type') == 'DESC') selected @endif>từ Z - A</option>
                                     </select>
                                 </div>
                                 <div class="col-lg-2">
-                                    <button type="submit" class="btn myBtn shadow-sm border w-100">Search</button>
+                                    <button type="submit" class="btn myBtn shadow-sm border w-100">Tìm kiếm</button>
                                 </div>
                             </div>
                         </form>
@@ -65,14 +65,14 @@
                                             <strong class="d-inline-block mb-2 text-secondary">{{ $room->capacity }}
                                                 {{ Str::plural('Person', $room->capacity) }}</strong>
                                             <h3 class="mb-0">{{ $room->number }} ~ {{ $room->type->name }}</h3>
-                                            <div class="mb-1 text-muted">{{ Helper::convertToRupiah($room->price) }} /
-                                                Day
+                                            <div class="mb-1 text-muted">{{ Helper::convertToVnd($room->price) }} /
+                                                Ngày
                                             </div>
                                             <div class="wrapper">
                                                 <p class="card-text mb-auto demo-1">{{ $room->view }}</p>
                                             </div>
                                             <a href="{{ route('transaction.reservation.confirmation', ['customer' => $customer->id, 'room' => $room->id, 'from' => request()->input('check_in'), 'to' => request()->input('check_out')]) }}"
-                                                class="btn myBtn shadow-sm border w-100 m-2">Choose</a>
+                                                class="btn myBtn shadow-sm border w-100 m-2">Chọn</a>
                                         </div>
                                         <div class="col-auto d-none d-lg-block">
                                             <img src="{{ $room->firstImage() }}" width="200" height="250" alt="">
@@ -80,8 +80,8 @@
                                     </div>
                                 </div>
                             @empty
-                                <h3>Theres no available room for {{ request()->input('count_person') }} or more
-                                    person
+                                <h3>Không có chỗ trống cho {{ request()->input('count_person') }} hoặc hơn
+                                    người
                                 </h3>
                             @endforelse
                         </div>

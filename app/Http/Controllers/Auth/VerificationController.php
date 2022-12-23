@@ -19,7 +19,7 @@ class VerificationController extends Controller
     |
     */
 
-    use VerifiesEmails;
+    use App\Http\Controllers\Auth\VerifiesEmailss;
 
     /**
      * Where to redirect users after verification.
